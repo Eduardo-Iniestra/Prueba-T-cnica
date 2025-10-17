@@ -16,7 +16,7 @@ import java.net.URL;
 public class MicroservicioService {
 
     public MicroservicioResponse obtenerDatos(String nombre) {
-        String baseUrl = "http://localhost:8081/ejercicio2/nombre";
+        String baseUrl = "https://sisedevco.ikeasistencia.com/api-swagger/api/v1/controller/test";
         String endpoint = baseUrl + "?name=" + nombre;
 
         try {
@@ -26,7 +26,7 @@ public class MicroservicioService {
 
             int codigoRespuesta = connection.getResponseCode();
 
-            if (codigoRespuesta == 302) {
+            if (codigoRespuesta == 200 || codigoRespuesta == 302) {
                 BufferedReader reader = new BufferedReader(
                         new InputStreamReader(connection.getInputStream())
                 );
@@ -62,7 +62,7 @@ public class MicroservicioService {
             }
 
         } catch (IOException e) {
-            System.out.println("Excepción: " + e.getMessage());
+            System.out.println("Error al consumir el servicio: " + e.getMessage());
             return null;
         }
     }

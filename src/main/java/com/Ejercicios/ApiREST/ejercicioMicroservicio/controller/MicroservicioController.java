@@ -11,6 +11,8 @@ import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/ejercicio2")
@@ -18,27 +20,24 @@ public class MicroservicioController {
 
     private final MicroservicioService microservicioService;
 
-    @Operation(
-            summary = "Introduzca un nombre para encontrar coincidencias",
-            description = "Realiza una búsqueda en el microservicio utilizando el parametro name"
-    )
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "OK"),
-            @ApiResponse(responseCode = "401", description = "Unauthorized"),
-            @ApiResponse(responseCode = "403", description = "Forbidden"),
-            @ApiResponse(responseCode = "404", description = "Not Found - sin resultados")
-    })
-    @GetMapping("/nombre")
-    public ResponseEntity<?> obtenerDatos(
-            @Parameter(description = "Nombre de la persona para buscar coincidencias", example = "Eduardo")
-            @RequestParam String name
-    ) {
-        MicroservicioResponse respuesta = microservicioService.obtenerDatos(name);
 
-        if (respuesta != null) {
-            return ResponseEntity.ok(respuesta);
-        } else {
-            return ResponseEntity.status(404).body("Sin resultados");
+    @Operation(summary = "Consume un API externo y devuelve nombre y fecha si hay coincidencia")
+    @GetMapping("/consumir-api")
+    public ResponseEntity<?> consumirApi(
+            @Parameter(description = "Nombre a buscar en la API") @RequestParam String nombre) {
+
+        String miNombre = nombre;
+        MicroservicioResponse respuesta = microservicioService.obtenerDatos(miNombre);
+
+        if (respuesta == null) {
+
+            return ResponseEntity
+                    .status(404)
+                    .body(Map.of("mensaje", "Sin resultados"));
         }
+
+        return ResponseEntity
+                .status(302)
+                .body(respuesta);
     }
 }
