@@ -4,10 +4,9 @@ import com.Ejercicios.ApiREST.ejercicioMicroservicio.dto.MicroservicioResponse;
 import com.Ejercicios.ApiREST.ejercicioMicroservicio.service.MicroservicioService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Response;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
