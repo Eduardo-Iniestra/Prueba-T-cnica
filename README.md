@@ -1,4 +1,5 @@
-Ejecuta el codigo de spring para levantar es servidor local, despues ingresa el siguiente URL en tu navegador para hacer uso de Swagger:
+1.- Clona el repositorio
+2.- Ejecuta el codigo de spring para levantar es servidor local, despues ingresa el siguiente URL en tu navegador para hacer uso de Swagger:
 
 ## http://localhost:8081/swagger-ui/index.html
 
