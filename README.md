@@ -100,10 +100,8 @@ src/main/java/com/Ejercicios/ApiREST/ejercicio1/
 {
   "palindromo": "anita lava la tina"
 }
-Response Body:
 
-json
-Copiar código
+Response Body:
 {
   "lengthCadena": 18,
   "isPalindromo": 1,
