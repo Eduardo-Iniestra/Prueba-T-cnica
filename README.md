@@ -1,4 +1,8 @@
-#Ejercicio 1 - Verificación de Palíndromo
+Ejecuta el codigo de spring para levantar es servidor local, despues ingresa el siguiente URL en tu navegador para hacer uso de Swagger:
+
+## http://localhost:8081/swagger-ui/index.html
+
+# Ejercicio 1 - Verificación de Palíndromo
 
 Este proyecto contiene un microservicio desarrollado en **Spring Boot** que recibe un JSON con una cadena y devuelve información sobre si es un **palíndromo**, la longitud de la cadena y la cantidad de caracteres especiales.  
 
